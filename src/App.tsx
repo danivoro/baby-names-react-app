@@ -1,15 +1,14 @@
 import namesData from "./babyNamesData.json";
-import "./App.css"
+import "./App.css";
 
 function App(): JSX.Element {
-
   const classForNames = (gender: string) => {
-    if (gender === 'f'){
-      return 'girl'
+    if (gender === "f") {
+      return "girl";
     } else {
-      return 'boy'
+      return "boy";
     }
-  }
+  };
 
   interface MyObject {
     id: number;
@@ -22,19 +21,18 @@ function App(): JSX.Element {
     sortedArr.sort((a, b) => a.name.localeCompare(b.name));
     return sortedArr;
   }
-  
-  
-  return(
+
+  return (
     <div>
       <p>Baby Names App</p>
-      
+
       {sortObjectsByName(namesData).map((item, index) => (
-        <span className={classForNames(item.sex)} key={index}>{item.name} </span>
-    )) 
-    }
-   </div>
-  ) 
-  
+        <span className={classForNames(item.sex)} key={index}>
+          {item.name}{" "}
+        </span>
+      ))}
+    </div>
+  );
 }
 
 export default App;
