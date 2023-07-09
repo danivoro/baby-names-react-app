@@ -20,11 +20,13 @@ body {
   }
   
   p {
-    color:rgb(87, 188, 255);
+    
     text-align: center;
     font-weight: bold;
-    font-size: 3rem; 
+    font-size: 3.5rem; 
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 30px;
+    -webkit-text-stroke: 2px rgb(255, 255, 255); 
+    -webkit-text-fill-color: rgb(87, 188, 255); 
   }
   
