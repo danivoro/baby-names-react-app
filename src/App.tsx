@@ -7,17 +7,15 @@ interface KeyboardControlledInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function KeyboardControlledInput(props: KeyboardControlledInputProps): JSX.Element {
+function KeyboardControlledInput(
+  props: KeyboardControlledInputProps
+): JSX.Element {
   return (
     <>
-      <input
-        value={props.value}
-        onChange={props.onChange}
-      />
+      <input value={props.value} onChange={props.onChange} />
     </>
   );
 }
-
 
 function App(): JSX.Element {
   const [typedMessage, setTypedMessage] = useState("");
@@ -25,7 +23,7 @@ function App(): JSX.Element {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTypedMessage(event.target.value);
   };
-  
+
   const classForNames = (gender: string) => {
     if (gender === "f") {
       return "girl";
@@ -47,26 +45,26 @@ function App(): JSX.Element {
   }
 
   function filterObjectByInput(arr: MyObject[]): MyObject[] {
-    const filteredArr = arr.filter((item) => item.name.toLowerCase().startsWith(typedMessage.toLowerCase()))
-    return filteredArr
+    const filteredArr = arr.filter((item) =>
+      item.name.toLowerCase().startsWith(typedMessage.toLowerCase())
+    );
+    return filteredArr;
   }
 
   return (
     <div>
       <p>Baby Names App</p>
       <div className="searchBar">
-        <KeyboardControlledInput 
+        <KeyboardControlledInput
           value={typedMessage}
           onChange={handleInputChange}
         />
       </div>
-      
+
       {filterObjectByInput(sortObjectsByName(namesData)).map((item, index) => (
-        
         <span className={classForNames(item.sex)} key={index}>
           {item.name}{" "}
         </span>
-
       ))}
     </div>
   );
